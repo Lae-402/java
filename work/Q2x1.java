@@ -1,4 +1,0 @@
-// int
-// boolean
-// char
-// float
