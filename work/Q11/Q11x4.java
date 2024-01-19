@@ -6,5 +6,6 @@ class Q11x4 {
 
         CoinCase a = new CoinCase();
         a.addCoins();
+
     }
 }
