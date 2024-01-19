@@ -1,0 +1,11 @@
+
+
+staticをつける：静的フィールド
+そのクラスの全インスタンスで共有されるクラス変数
+
+コンストラクタは多重定義できる。引数として値を受け取っていないフィールドを１とする場合、
+public Day()　　　　　　　　　　　　　　　　　   1年    1月   1日で初期化
+public Day(int year)　　　　　　　　　　　　 year年    1月   1日で初期化
+public Day(int year, int mouth, int date)　year年month月date日で初期化
+などとできる。インスタンス化時に適切なものを選んでくれる。
+
