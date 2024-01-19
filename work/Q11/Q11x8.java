@@ -2,47 +2,22 @@ package work.Q11;
 
 class Q11x8 {
     public static void main(String[] args) {
-        Person aaa = new Person("A", 45, "千代田区", "xxx@example");
+        Person8[] people = {
+            new Person8("Ａ", 18, "千代田区神田神保町 1-1", "aaa@mail.com"),
+            new Person8("Ｂ", -3, "横浜市西区桜木町 2-2-2", "bbb@mail.com"),
+            new Person8("Ｃ", 20, "さいたま市北区大原 3-3", "@email.co.jp"),
+        };
 
-        System.out.println(aaa.name);
-        // System.out.println(aaa.address);
-        // System.out.println(aaa.getAddress);
+        
+
+
+    for (Person8 person : people) {
+        String flag = "正常";
+        if (!person.checkAge() || !person.checkEmail()) {
+            flag = "異常";
+        }
+        System.out.println(person.name + "さん　" + person.age + "歳　" + person.address + "　" + person.email + "　" + flag);
+        }
     }
 }
 
-
-// """
-//     package work;
-
-//     public class Person {
-//         public String name;
-//         public int age;
-//         // もしprivateだったら
-//         private String address;
-//         public String email;
-    
-//         // コンストラクタ
-//         Person(String name, int age, String address, String email_) {
-//             this.name = name;
-//             this.age = age;
-//             this.address = address;
-//             this.email = email;
-//         }
-    
-//         public boolean checkAge(int age) {
-//             if(0 <= age && 99 >= 99)
-//                 return true;
-//             return false;
-//         }
-    
-//         // public boolean cheskEmail(String email) {
-//         //     for (char moji : email) {
-//         //         if 
-//         //     }
-//         // }
-    
-//         public String getAddress(){
-//             return address;
-//         }
-//     }        
-// """
