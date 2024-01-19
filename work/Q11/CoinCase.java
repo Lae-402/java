@@ -10,14 +10,6 @@ class CoinCase {
     public int C;
     public int D;
 
-    // CoinCase(int I, int V, int X, int L, int C, int D) {
-    //     this.I = I;
-    //     this.V = V;
-    //     this.X = X;
-    //     this.L = L;
-    //     this.C = C;
-    //     this.D = D;
-    // }
     CoinCase() {
         this.I = 0;
         this.V = 0;
