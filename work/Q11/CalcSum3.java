@@ -1,14 +1,13 @@
 package work.Q11;
 
-public class CalcSum {
+public class CalcSum3 {
 
-    // フィールド
-    static public int x;
-    static public int y;
+    public int x;
+    public int y;
 
-    static {
-        x = 100;
-        y = 200;
+    CalcSum3(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
     public int calc () {
