@@ -12,7 +12,7 @@ public class Student {
         this.id = id;
         this.ja = ja;
         this.math = math;
-        this.en = en;　　　　276
+        this.en = en;
     }
 
     public double calc_ave () {
