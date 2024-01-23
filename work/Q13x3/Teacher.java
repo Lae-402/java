@@ -1,6 +1,6 @@
 package work.Q13x3;
 
-public class Teacher extends Person {
+public class Teacher implements Person {
 
     String name;
     String job;

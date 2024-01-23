@@ -1,6 +1,6 @@
 package work.Q13x3;
 
-public class Cook extends Person {
+public class Cook implements Person {
 
     String name;
     String job;

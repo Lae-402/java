@@ -1,4 +1,5 @@
-package work.Q13x3;
+package work.Q13x6;
+// 途中
 
 public interface Person {
 
