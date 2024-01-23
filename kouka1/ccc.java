@@ -1,4 +1,4 @@
-package work;
+package kouka1;
 class ccc {
     public static void main(String[] args) {
         int num3 = 3;

@@ -1,4 +1,4 @@
-package work;
+package kouka1;
 class aaa {
     public static void main(String[] args) {
         int num1 = 10;

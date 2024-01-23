@@ -1,4 +1,4 @@
-package work;
+package kouka1;
 import java.util.Scanner;
 
 public class Java_kouka1_Q5 {
