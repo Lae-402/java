@@ -2,9 +2,9 @@ package work.Q13x2;
 
 public class ITStudent extends BasicStudent {
 
-    int html;
-    int javaScript;
-    int java;
+    private int html;
+    private int javaScript;
+    private int java;
 
     ITStudent( String name, String no, String schoolName, int html, int javaScript, int java ){ super(name, no, schoolName); this.html = html; this.javaScript = javaScript; this.java = java; }
 

@@ -2,8 +2,8 @@ package work.Q13x2;
 
 public class BookKeepingStudent extends BasicStudent {
     
-    int accounting;
-    int business;
+    private int accounting;
+    private int business;
 
     BookKeepingStudent( String name, String no, String schoolName, int accounting, int business ){ super(name, no, schoolName); this.accounting = accounting; this.business = business; }
 
@@ -14,4 +14,11 @@ public class BookKeepingStudent extends BasicStudent {
 
     }
 
+    public int getAccounting () {
+        return this.accounting;
+    }
+
+    public int getBusiness () {
+        return this.business;
+    }
 }
