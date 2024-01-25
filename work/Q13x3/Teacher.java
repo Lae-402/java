@@ -2,9 +2,9 @@ package work.Q13x3;
 
 public class Teacher implements Person {
 
-    String name;
-    String job;
-    String subject;
+    private String name;
+    private String job;
+    private String subject;
 
     Teacher( String name, String job, String subject ){ this.name = name; this.job = job;  this.subject = subject; }
     

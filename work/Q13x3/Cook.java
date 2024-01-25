@@ -2,9 +2,9 @@ package work.Q13x3;
 
 public class Cook implements Person {
 
-    String name;
-    String job;
-    String specialities;
+    private String name;
+    private String job;
+    private String specialities;
 
     Cook( String name, String job, String specialities ){ this.name = name; this.job = job;  this.specialities = specialities; }
     
