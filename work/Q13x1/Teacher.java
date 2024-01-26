@@ -9,9 +9,8 @@ public class Teacher extends Person {
     public Teacher( String name, String job, String subject ){ super(name, job); this.subject = subject; }
     
     @Override public void introduce() {
-        System.out.println("氏名：" + this.name);
-        System.out.println("職業：" + this.job);
+        System.out.println("氏名：" + super.getName());
+        System.out.println("職業：" + super.getJob());
         System.out.println("担当科目：" + this.subject);
     }
-    
 }

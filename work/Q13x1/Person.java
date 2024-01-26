@@ -9,4 +9,11 @@ public abstract class Person {
 
     public abstract void introduce();
 
+    public String getName() {
+        return name;
+    }
+
+    public String getJob() {
+        return job;
+    }
 }
