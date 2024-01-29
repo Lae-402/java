@@ -1,3 +1,4 @@
+package work;
 import java.util.Scanner;
 
 public class Q6x5 {
