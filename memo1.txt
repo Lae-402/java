@@ -51,10 +51,22 @@ ArrayList<Integer> リ = new ArrayList<Integer>();
 ・要素数
 リ.size()
 -------------------------------------------------------------
-＊ハッシュマップ＊　8-14とか8-15とか
+＊ハッシュマップ(連想配列)＊　8-14とか8-15とか
 import java.util.*;
-Map<String, String> マ = new HashMap<>();
+・定義
+Map<String, Integer> マ = new HashMap<>();
+Map<String, String> map = new HashMap<String, String>(){{ 
+    put("name", "大原"); }};
+・追加
 マ.put("", "");
+・削除
+マ.remove(キー)
+・表示
+for (String key: map.keySet()) {
+    System.out.println(key + "：" + map.get(key));
+    }
+・要素数
+msp.dixr
 ------------------------------------------------------------
 
 -------------------------------------------------------------------

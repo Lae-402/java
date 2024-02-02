@@ -19,7 +19,7 @@ public class Q8x4 {
         }
 
         System.out.println("合計値は" + sum + "です。");
-        System.out.println("平均値は" + max + "です。");
+        System.out.println("最大値は" + max + "です。");
 
         for ( int j=0; j<10; j++ ) {
             System.out.println("配列[" + j + "]：" + lst[j] );
