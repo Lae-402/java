@@ -31,11 +31,16 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
     // ------------------------------------------------------------------------
     // オーバードライブ：プレイする曲を選ぶ関数
     // 引数　：なし
-    // 戻り値：プレイする曲の歌詞１文ずつを要素とする配列
+    // 戻り値：なし
     @Override public void selectSong() {
-        Scanner stdIn = new Scanner(System.in, "Shift-jis");
+        Scanner stdIn = new Scanner(System.in);
+
+        // インスタンス化
         Song song = new Song();
+
+        // String型：曲一覧
         String[] songs = song.getSongs();
+        // String型：アーティスト一覧
         String[] artists = song.getArtists();
 
         // while：求める入力がされるまで
@@ -47,12 +52,15 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                 System.out.println( "【 " + (i+1) + " 】：" + songs[i] + "（" + artists[i]  + "）" );
             }
 
-            try {
+            // プレイする曲を一覧から選択させる
             System.out.println("\n＊プレイする曲を選択してください（終了する場合は［ ctrl + C ］を押してください）" );
+            try {
             int userSelect = stdIn.nextInt()-1;
-            this.lyrics = song.getLyrics()[userSelect];  // プレイする歌詞を設定
+            // プレイする曲の歌詞を設定
+            this.lyrics = song.getLyrics()[userSelect];
+            // 求める入力だった場合、ループを抜ける
             System.out.println( "\n＊『" + songs[userSelect] + "』（" + artists[userSelect] + "）を選択しました");
-            break;  // ループを抜ける
+            break;
 
             // 例外：整数以外の入力
             } catch ( InputMismatchException e ) {
@@ -71,33 +79,32 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                 System.out.println("\n＊終了します\n");
                 System.exit(0);
             }
-        }  // while ここまで
+        }  // 終：while
         
-    }  // selectSong ここまで
+    }  // 終：selectSong
 
 
     // ---------------------------------------------------------------------
     // オーバードライブ：結果を表示する関数
-    // 引数　：なし
+    // 引数　：今プレイの正答率
     // 戻り値：なし
     @Override public void displayResult( double CAR ) {
 
         // 終了メッセージ・結果の表示
-        System.out.println("\n---------------------------------");
-        System.out.println("＊終了！\n---------------------------------");
+        System.out.println("\n---------------------------------\n＊終了！\n---------------------------------");
         System.out.println("\n＊プレイ回数：" + this.playCount);
         System.out.println("\n＊ただいまの文字数：" + (int)this.result[0]);
         System.out.println("＊ただいまの正答文字数：" + (int)this.result[1]);
         System.out.println("＊ただいまの正答率：" + CAR + " %" );
+        // 条件：プレイが初回でない
         if ( this.playCount >= 2 ) {
             System.out.println("\n＊総文字数　　　　：" + this.allOfResult[0]);
             System.out.println("＊総正答文字数　　：" + this.allOfResult[1]);
             System.out.println("＊総正答率　　　　：" + this.allOfCAR + " %");
         }
-
         System.out.println("\n---------------------------------\n");
 
-    }  // displayResult ここまで
+    }  // 終：displayResult
 
 
     // ---------------------------------------------------------------------
@@ -107,14 +114,16 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
     @Override public void runGame() {
         Scanner stdIn = new Scanner(System.in, "Shift-jis");
 
-        // String型：再プレイをするか訊いた解答を保持
+        // String型：再プレイするか訊いた解答を保持
         String replay;
 
-        // while：ユーザが終了するまで
+        // while：ユーザが終了させるまで
         while ( true ) {
 
             // 条件：プレイが初回でない
+            // 再プレイするか選択させる
             if ( this.playCount > 0 ) {
+
                 // while：求める入力がされるまで
                 while ( true ) {
                     System.out.println("＊もう一度プレイしますか？");
@@ -145,8 +154,10 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                         // whileループを抜けて続行
                         break;
                     }
-                }  // while ここまで
-            }  // if ここまで
+
+                }  // 終：while
+
+            }  // 終：if
 
             // プレイ回数を増やす
             this.playCount++;
@@ -165,6 +176,9 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                 System.out.println("\n＊終了します\n");
                 System.exit(0);
             }
+
+            // タイピング→正誤判定を行う関数の呼出
+            // 引数：プレイする曲の歌詞
             this.result = super.judgment(this.lyrics);
 
             // 条件：ユーザがタイピング開始前に終了した
@@ -183,8 +197,9 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
             // 結果を表示する関数の呼出
             // 引数：今プレイの正答率
             displayResult( result[1] / result[0] * 100 );
-        }
 
-    }  // runGame ここまで
+        }  // 終：while
 
-}
+    }  // 終：runGame
+
+}  // 終：TypingGame

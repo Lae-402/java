@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 // クラス：判定
-public class TypeJudgment {
+public class TypeJudgement {
 
     // int型配列：判定結果を戻り値とするための配列
     private int[] result = {0, 0};
@@ -18,9 +18,9 @@ public class TypeJudgment {
     public int[] judgment( ArrayList<String> lyric ) {
         Scanner stdIn = new Scanner(System.in, "Shift-jis");
 
-            // int型：設定歌詞の文字数
+        // int型：設定歌詞の文字数
         int targetCharCount = 0;
-    // int型：正答文字数
+        // int型：正答文字数
         int matchCharCount = 0;
 
         // string型：ユーザの入力を保持
@@ -39,6 +39,7 @@ public class TypeJudgment {
             try {
                 // String型：ユーザの入力歌詞で初期化
                 userInput = stdIn.nextLine();
+
             // 例外：[Ctrl+C]が押下されたとき
             } catch ( NoSuchElementException e ) {
                 // 直前の設定歌詞総文字数の加算を取り消す
@@ -50,33 +51,40 @@ public class TypeJudgment {
             int judge = -2;
             // int型：indexOfの結果を保持（0で初期化）
             int searchIndex = 0;
+            // int型；衍字判定の指標を保持（-1で初期化）
             int tmp = -1;
-        
 
+            // 内ループ：一文字ずつ正誤判定
+            // int型 target：設定歌詞を一文字ずつ代入
             for ( int targetIndex=0; targetIndex<targetSentence.length(); targetIndex++ ) {
+
+                // judge = targetが最初に含まれる位置
                 judge = userInput.indexOf( targetSentence.substring(targetIndex, targetIndex+1), searchIndex);
 
                 // 条件：正解
                 if ( judge == tmp+1 ) {
-                    matchCharCount++;
+                    matchCharCount++; // 正答文字数を加算
                     tmp = judge;
                     searchIndex++;
+
                 // 条件：衍字
                 } else if ( judge != -1 && judge != (tmp + 1) ) {
                     tmp = judge;
                     searchIndex = judge + 1;
                 }
-                // 脱字の時は何もしない
-            }
-            
-            
+                // 脱字の時はtargetIndexの更新のみ（何もしない）
+
+            }  // 終：内ループ
 
         }  // 終：外ループ
 
-        this.result[0] = targetCharCount;
-        this.result[1] = matchCharCount;
+        // 今プレイの結果をresultに代入
+        this.result[0] = targetCharCount;  // 設定文字数
+        this.result[1] = matchCharCount;   // 正答文字数
 
+        // return：今プレイの結果
         return this.result;
-    };
+
+    }  // 終：judgemant
     
-}
+}  // 終：TypeJudgment
