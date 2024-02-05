@@ -50,12 +50,17 @@ public class Song extends Artist {
         this.lyrics [2].add("なぜ今また昔の男など現れる。");
     }
 
+    // ゲッター：songs
     public String[] getSongs () {
         return songs;
     }
+
+    // ゲッター：artists
     public String[] getArtists () {
         return artists;
     }
+
+    // ゲッター：lyrids
     public ArrayList<String>[] getLyrics () {
         return lyrics;
     }
