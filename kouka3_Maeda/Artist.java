@@ -1,5 +1,6 @@
 package kouka3_Maeda;
 
+// クラス：アーティスト
 public class Artist {
 
     // フィールド

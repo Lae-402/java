@@ -45,14 +45,13 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
             System.out.println();
             for ( int i=0; i<songs.length; i++ ) {
                 System.out.println( "【 " + (i+1) + " 】：" + songs[i] + "（" + artists[i]  + "）" );
-                // System.out.print( "【 " + (i+1) + " 】："); System.out.printf("%-10s", songs[i]); System.out.println(" / " + artists[i] );
             }
 
             try {
             System.out.println("\n＊プレイする曲を選択してください（終了する場合は［ ctrl + C ］を押してください）" );
             int userSelect = stdIn.nextInt()-1;
             this.lyrics = song.getLyrics()[userSelect];  // プレイする歌詞を設定
-            System.out.println( "\n＊『" + songs[userSelect] + "』を選択しました");
+            System.out.println( "\n＊『" + songs[userSelect] + "』（" + artists[userSelect] + "）を選択しました");
             break;  // ループを抜ける
 
             // 例外：整数以外の入力
@@ -66,8 +65,9 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                 System.out.println( "\n＊エラー：" + e );
                 System.out.println("＊表示されている整数から選んで入力してください");
             
-            // 例外：
+            // 例外：[ ctrl + C ] の押下
             } catch ( NoSuchElementException e ) {
+                // プログラム実行終了
                 System.out.println("\n＊終了します\n");
                 System.exit(0);
             }
@@ -156,7 +156,15 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
 
             // プレイ
             System.out.println("\n---------------------------------\n＊[ Enter ] で開始\n---------------------------------\n");
+
+            try {
             stdIn.nextLine();
+            // 例外：[ ctrl + C ] の押下
+            } catch ( NoSuchElementException e ) {
+                // プログラム実行終了
+                System.out.println("\n＊終了します\n");
+                System.exit(0);
+            }
             this.result = super.judgment(this.lyrics);
 
             // 条件：ユーザがタイピング開始前に終了した
@@ -166,16 +174,15 @@ public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
                 System.exit(0);
             }
 
-            double CAR = result[1] / result[0] * 100;
             // 今プレイの結果を総合結果に加算
             this.allOfResult[0] = this.allOfResult[0] + (int)result[0];
             this.allOfResult[1] = this.allOfResult[1] + (int)result[1];
             // 総正答率（ Correct Answer Rate ）の計算
-            // this.allOfCAR = (this.allOfCAR * (this.playCount-1) + this.result[2] ) / this.playCount;
             this.allOfCAR = this.allOfResult[1] / this.allOfResult[0] * 100;
 
             // 結果を表示する関数の呼出
-            displayResult( CAR );
+            // 引数：今プレイの正答率
+            displayResult( result[1] / result[0] * 100 );
         }
 
     }  // runGame ここまで

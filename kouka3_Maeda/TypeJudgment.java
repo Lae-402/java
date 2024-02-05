@@ -51,50 +51,10 @@ public class TypeJudgment {
             // int型：indexOfの結果を保持（0で初期化）
             int searchIndex = 0;
             int tmp = -1;
-            
-            // 内ループ：targetLylicを左から１文字ずつ、userInupt内の初登場位置をuserInputLeftとし、
-                    // ：
-            // for：
-            // int型：targetSentenceを１文字ずつ参照するためのインデックス（0で初期化）
-
-            // for ( int targetIndex=0; targetIndex<targetSentence.length(); targetIndex++ ) {
-            //             // System.out.print(searchIndex + "\t");
-            //     judge = userInput.indexOf( targetSentence.substring(targetIndex, targetIndex+1), searchIndex);
-            //     System.out.println( targetSentence.substring(targetIndex, targetIndex+1) + "\t" + judge + "\t\t" + userInput.substring( searchIndex ) );
-            //             // System.out.println("＠" + targetSentence.substring(targetIndex, targetIndex+1) + "\t mI : " + searchIndex + "  \t" + userInput.substring(searchIndex) + "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-
-            //     // 条件：一致する文字が無い
-            //     if ( judge == -1 ) {
-            //         continue;
-            //     // 条件：判定結果が正解
-            //     } else if ( judge-1 == tmp ) {
-            //         tmp = searchIndex;
-            //         this.matchCharCount++;
-            //         searchIndex++;
-            //     } else {
-            //         tmp = judge;  //j???
-            //         searchIndex = judge ;
-            //     }
-            // }  // 終：内ループ
+        
 
             for ( int targetIndex=0; targetIndex<targetSentence.length(); targetIndex++ ) {
                 judge = userInput.indexOf( targetSentence.substring(targetIndex, targetIndex+1), searchIndex);
-
-                // // 条件：一致する文字が無い（ 脱字または誤字 ）
-                // if ( judge == -1 ) {
-                //     continue;
-
-                // // 条件：正解
-                // } else if ( judge == tmp+1 ) {
-                //     tmp = judge;
-                //     matchCharCount++;
-                //     searchIndex++;
-                
-                // // 条件：衍字
-                // } else {
-                //     tmp = judge;  //???
-                //     searchIndex = judge + 1;
-                // }
 
                 // 条件：正解
                 if ( judge == tmp+1 ) {
