@@ -8,7 +8,7 @@ import java.util.Scanner;
 // クラス：タイピングゲーム（メイン）
 // 継承：
 // 実装：
-public class TypingGame extends TypeJudgment implements InterfaceTypingGame {
+public class TypingGame extends TypeJudgement implements InterfaceTypingGame {
     
     // フィールド
     private int playCount = 0;
